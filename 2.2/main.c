@@ -39,6 +39,8 @@ int main(){
                 write (fc, buf, 1000);
 
             printf("file copy");
+            close(f);
+            close(fc);            
             break;
         }
         default:
@@ -57,6 +59,7 @@ int main(){
                 write(f, buf, 1000);
 
             printf("file is ready");
+            close(f);
             break;
         }
     }
