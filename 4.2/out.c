@@ -13,13 +13,13 @@ int main(){
     struct sembuf open = {0,1,0};
 
     key_t key = 2002 ;
-    int shm = shmget(key, 32, IPC_CREAT|0666);
+    int shm = shmget(key, NULL, IPC_CREAT|0666);
     if (shm == -1){
         printf("shmget error \n");
         return 0;
     }
 
-    int sm = shmget(key, 32, IPC_CREAT|0666);
+    int sm = shmget(key, NULL, IPC_CREAT|0666);
     if (sm == -1){
         printf("shmget error \n");
         return 0;
