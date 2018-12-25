@@ -9,8 +9,8 @@
 
 int main(){
 
-    key_t key = 2002;
-    int shm = shmget(key, 32, 0666);
+    key_t key = ftok("/tmp", 'a');
+    int shm = shmget(key, 2*sizeof(int), 0666);
     if (shm == -1){
         printf("Error \n");
         return 0;
