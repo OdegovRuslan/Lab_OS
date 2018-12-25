@@ -19,7 +19,7 @@ int main(){
         return 0;
     }
 
-    int sm = shmget(key, 100, IPC_CREAT|0666);
+    int sm = shmget(key, 32, IPC_CREAT|0666);
     if (sm == -1){
         printf("shmget error \n");
         return 0;
