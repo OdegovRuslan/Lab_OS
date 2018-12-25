@@ -14,8 +14,8 @@ pthread_mutex_t mutex;
 pthread_cond_t status;
 
 void* func(){
-    key_t key = ftok("sm", 30);
-    int shm = shmget(key, 100, IPC_CREAT|0666);
+    key_t key = 2002;
+    int shm = shmget(key, 32, IPC_CREAT|0666);
     if (shm == -1){
         printf("shmget error \n");
         return 0;
@@ -49,8 +49,8 @@ int main(){
 		return 0;
     }
 
-    key_t key = ftok("sm", 30);
-    int shm = shmget(key, 100, IPC_CREAT|0666);
+    key_t key = 2002;
+    int shm = shmget(key, 32, IPC_CREAT|0666);
     if (shm == -1){
         printf("shmget error \n");
         return 0;
