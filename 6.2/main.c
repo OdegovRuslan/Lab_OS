@@ -13,7 +13,7 @@ pthread_rwlock_t cl;
 
 void* f(){
     key_t key = 2003;
-    int shm = shmget(key, 32, 0666);
+    int shm = shmget(key, 32, IPC_CREAT | 0666);
     if (shm == -1){
         printf("shmget error \n");
         return 0;
