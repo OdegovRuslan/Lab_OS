@@ -32,11 +32,11 @@ int main(){
 	}
 
 	while (1){
-        semop(shm, &close,1);
+        semop(sm, &close,1);
         time_t t = time(0);
         sprintf(p, "%s", ctime(&t));
         sleep(1);
-        semop(shm, &open,1);
+        semop(sm, &open, 1);
 	}
 
 	return 0;
