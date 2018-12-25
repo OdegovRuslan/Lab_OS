@@ -30,7 +30,9 @@ int main(){
 
             char *tp = (char*)calloc(80, sizeof (char));
             read(fp, tp, 80);
+            printf("CHILD: Received data from fifo\n");
             close(fp);
+
             printf("%s\n", tp);
             break;
         }
@@ -44,6 +46,7 @@ int main(){
 
             time_t t = time (0);
             write(fc, ctime(&t), 80);
+            printf("PARENT: Put data in pipe\n");
             close(fc);
             break;
         }
