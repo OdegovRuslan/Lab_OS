@@ -14,10 +14,10 @@ pthread_mutex_t mutex;
 pthread_cond_t status;
 
 void* func(){
-    key_t key = 2002;
+    key_t key = 1982;
     int shm = shmget(key, 32, IPC_CREAT|0666);
     if (shm == -1){
-        printf("shmget error \n");
+        printf("shmget error 1\n");
         return 0;
     }
 
@@ -49,10 +49,10 @@ int main(){
 		return 0;
     }
 
-    key_t key = 2002;
+    key_t key = 1982;
     int shm = shmget(key, 32, IPC_CREAT|0666);
     if (shm == -1){
-        printf("shmget error \n");
+        printf("shmget error 2 \n");
         return 0;
     }
 
