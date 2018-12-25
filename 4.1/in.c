@@ -9,7 +9,7 @@
 
 int main(){
 
-    key_t key = ftok("/tmp", 'a'); ;
+    key_t key = ftok("/tmp", 'a');
     int shm = shmget(key, 2*sizeof(int), IPC_CREAT|0666);
     if (shm == -1){
         printf("Error \n");
