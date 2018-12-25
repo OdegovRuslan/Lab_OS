@@ -12,8 +12,8 @@ int main(){
     struct sembuf close = {0,-1,0};
     struct sembuf open = {0,1,0};
 
-    key_t key = ftok("sm", 30);
-    int shm = shmget(key, 100, IPC_CREAT|0666);
+    key_t key = 2002;
+    int shm = shmget(key, 32, IPC_CREAT|0666);
     if(shm == -1){
         printf("shmget error \n");
         return 0;
