@@ -10,7 +10,7 @@
 #define FILE_SIZE 100000000
 #define BUFFER_SIZE 100000
 
-int generate_source_file()
+int generate_file()
 {
 	int f = open("read.txt", O_RDWR | O_TRUNC | O_CREAT | O_NONBLOCK, S_IWRITE|S_IREAD);
 	char* buf = (char*)calloc(BUFFER_SIZE, sizeof(char));
@@ -32,7 +32,7 @@ int generate_source_file()
 }
 
 
-int source_to_target_copy()
+int copy_file()
 {
     int fread = open("read.txt", O_RDONLY | O_CREAT);
 	int fwrite = open("write.txt", O_WRONLY | O_TRUNC | O_CREAT, S_IWRITE|S_IREAD);
@@ -91,14 +91,17 @@ int main(void)
 	    }
 		case 0:{
             sleep(1);
-            if(source_to_target_copy() == -1){
+            if(copy_file() == -1){
                 return 0;
             }
+		printf("File copied\n");
         }
         default:{
-            if(generate_source_file() == -1){
+            if(generate_file() == -1){
                 return 0;
             }
+		printf("The file is generated\n");
+		
         }
 	}
 	return 0;
