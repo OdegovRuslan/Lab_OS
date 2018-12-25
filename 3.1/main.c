@@ -23,7 +23,7 @@ int main (){
             close(fd[1]);
             sleep(1);
             read(fd[0], &tp, sizeof(time_t));
-            printf("PARENT: Received data from pipe\n");
+            printf("CHILD: Received data from pipe\n");
             close(fd[0]);
 
             printf ("%s\n", ctime(&tp));
@@ -36,7 +36,7 @@ int main (){
             time_t tc = time (0);
             write(fd[1], &tc, sizeof(time_t));
             sleep(1);
-            printf("CHILD: Put data in pipe\n");
+            printf("PARENT: Put data in pipe\n");
             close(fd[1]);
             break;
         }
