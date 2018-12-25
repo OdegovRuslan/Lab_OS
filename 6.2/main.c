@@ -12,7 +12,7 @@
 pthread_rwlock_t cl;
 
 void* f(){
-    key_t key = 2002;
+    key_t key = 2003;
     int shm = shmget(key, 32, 0666);
     if (shm == -1){
         printf("shmget error \n");
@@ -21,7 +21,7 @@ void* f(){
 
     char* p = shmat(shm, NULL, 0);
     if(p == (char*)-1){
-		printf ("shmat error\n");
+		printf ("shmat error 1\n");
 		return 0;
 	}
 
@@ -46,10 +46,10 @@ int main(){
 		return 0;
     }
 
-    key_t key = 2002;
+    key_t key = 2003;
     int shm = shmget(key, 32, IPC_CREAT|0666);
     if (shm == -1){
-        printf("shmget error \n");
+        printf("shmget error 2\n");
         return 0;
     }
 
